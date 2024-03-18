@@ -24,7 +24,7 @@ repackage:
     - echo "Repackaging your application into a PHAR file..."
     - vendor/bin/castor repack --app-name=cpamg
     - mkdir -p ${RELEASES_DIR}
-    - mv cpamg.phar ${RELEASES_DIR}/cpamg.phar
+    - mv cpamg.linux.phar ${RELEASES_DIR}/cpamg.phar
     - echo "Repackaging completed."
   artifacts:
     paths:
