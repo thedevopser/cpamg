@@ -7,16 +7,6 @@ use function Castor\io;
 use function Castor\capture;
 use function Castor\run;
 
-
-#[AsTask(description: '📦 Build and Repack Application')]
-function build(): void
-{
-    io()->title('🚀 Building package...');
-    run('vendor/bin/castor repack --app-name=cpamg');
-    run('mv cpamg.linux.phar ./releases/cpamg.phar');
-    io()->success('Package built and moved successfully!');
-}
-
 #[AsTask(description: '🛠 Initialize New Symfony Project')]
 function init(string $path, string $name, string $version): void
 {
