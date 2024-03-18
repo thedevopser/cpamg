@@ -2,8 +2,10 @@ stages:
   - build
   - release
 
-variables:
-  RELEASES_DIR: "releases"
+cache:
+  paths:
+    - vendor/
+    - $HOME/.composer/cache
 
 repackage:
   stage: build
@@ -27,7 +29,7 @@ repackage:
     - echo "Repackaging completed."
   artifacts:
     paths:
-      - ${RELEASES_DIR}/cpamg.phar
+      - cpamg.phar
 
 create_release:
   stage: release
