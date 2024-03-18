@@ -23,8 +23,7 @@ repackage:
   script:
     - echo "Repackaging your application into a PHAR file..."
     - vendor/bin/castor repack --app-name=cpamg
-    - mkdir -p ${RELEASES_DIR}
-    - mv cpamg.linux.phar ${RELEASES_DIR}/cpamg.phar
+    - mv cpamg.linux.phar cpamg.phar
     - echo "Repackaging completed."
   artifacts:
     paths:
@@ -40,6 +39,6 @@ create_release:
     - |
       release-cli create --name "Release ${CI_COMMIT_TAG}" --description "Release ${CI_COMMIT_TAG}" \
       --tag-name "${CI_COMMIT_TAG}" --ref "${CI_COMMIT_REF_NAME}" \
-      --assets-link "{\"name\":\"cpamg.phar\",\"url\":\"${CI_PROJECT_URL}/-/jobs/${CI_JOB_ID}/artifacts/raw/releases/cpamg.phar\"}"
+      --assets-link "{\"name\":\"cpamg.phar\",\"url\":\"${CI_PROJECT_URL}/-/jobs/${CI_JOB_ID}/artifacts/raw/cpamg.phar\"}"
     - echo "Release created."
 
