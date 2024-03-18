@@ -17,6 +17,8 @@ repackage:
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
     - mv composer.phar /usr/local/bin/composer
+    - composer global require humbug/box --prefer-dist
+    - ln -s /root/.composer/vendor/bin/box /usr/local/bin/box
     - composer install --no-progress --prefer-dist
   script:
     - echo "Repackaging your application into a PHAR file..."
